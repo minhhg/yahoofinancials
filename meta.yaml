@@ -1,0 +1,41 @@
+{% set name = "yahoofinancials" %}
+{% set version = "1.5" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: git@github.com:minhhg/yahoofinancials.git
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - beautifulsoup4
+    - pip
+    - python
+    - pytz
+  run:
+    - beautifulsoup4
+    - python
+    - pytz
+
+test:
+  imports:
+    - yahoofinancials
+
+about:
+  home: "https://github.com/JECSand/yahoofinancials"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "A powerful financial data module used for pulling both fundamental and technical data from Yahoo Finance"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
